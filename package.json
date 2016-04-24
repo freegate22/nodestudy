@@ -4,6 +4,7 @@
   "description": "node study",
   "main": "hello.js",
   "dependencies": {
+    "express": "^4.13.4",
     "uglify-js": "^2.6.2",
     "underscore": "^1.8.3"
   },
