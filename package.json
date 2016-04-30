@@ -5,6 +5,7 @@
   "main": "hello.js",
   "dependencies": {
     "express": "^4.13.4",
+    "jade": "^1.11.0",
     "uglify-js": "^2.6.2",
     "underscore": "^1.8.3"
   },
