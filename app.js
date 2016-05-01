@@ -1,9 +1,21 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }))
 app.locals.pretty = true;
 app.set('views','./views'); // 관습적 (default 값이기도 함)
 app.set('view engine','jade');  // 변경불가
 app.use(express.static('public')); // 관습적
+app.get('/form',function (req, res) {
+  res.render('form');
+});
+app.post('/form_receiver',function (req, res) {
+  var title = req.body.title;
+  var description = req.body.description;
+  res.send("post!! " +title + " " + description);
+});
+
 app.get('/topic/:id', function (req, res) {
   var topics = [
     'javascript is...',
