@@ -1,11 +1,34 @@
 var express = require('express');
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+})
+
+var upload = multer({ storage: storage });
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false}));
 app.locals.pretty = true;
+
+// uploads 폴더를 url에서 user로 접근
+app.use('/user',express.static('uploads'));
 app.set('views','./views_file');
 app.set('view engine','jade');
+app.get('/upload',function(req, res){
+  res.render('upload');
+});
+
+// input type="file" name="avatar"
+app.post('/upload', upload.single('avatar'),function(req, res){
+  console.log(req.file);
+  res.send('Uploaded :' + req.file.filename);
+});
 app.get('/topic/new',function(req, res){
   fs.readdir('data',function(err, files){
     if(err){
