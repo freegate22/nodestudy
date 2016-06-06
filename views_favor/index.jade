@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+  ul
+    each favor in favorites
+      li
+        a(href='/favor/'+rid)=favor.url

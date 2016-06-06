@@ -8,6 +8,7 @@
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "multer": "^1.1.0",
+    "node-mysql": "^0.4.2",
     "orientjs": "^2.2.0-beta2",
     "uglify-js": "^2.6.2",
     "underscore": "^1.8.3"
