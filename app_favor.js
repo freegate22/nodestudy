@@ -4,7 +4,7 @@ var mysql      = require('mysql');
 var conn = mysql.createConnection({
   host     : 'hsoh.cta4qrovv0s3.ap-northeast-2.rds.amazonaws.com',
   user     : 'hsoh',
-  password : 'dkcladp1m',
+  password : '11111111',
   database : 'hsoh'
 });
 
@@ -20,15 +20,15 @@ conn.connect();
 //   }
 // });
 
-// var sql = 'INSERT INTO favor (id, folder_id, user_id, name, url, type) VALUES (?,?,?,?,?,?)';
-// var params = ['xx','aa','aa','aa','aa','aa'];
-// conn.query(sql, params, function(err, rows, fields) {
-//   if (err) {
-//     throw err;
-//   } else {
-//     console.log(rows.insertId);
-//   }
-// });
+var sql = 'INSERT INTO favor (id, folder_id, user_id, name, url, type) VALUES (?,?,?,?,?,?)';
+var params = ['xx','aa','aa','aa','aa','aa'];
+conn.query(sql, params, function(err, rows, fields) {
+  if (err) {
+    throw err;
+  } else {
+    console.log(rows.insertId);
+  }
+});
 
 var sql = 'UPDATE favor SET folder_id=? WHERE id=?';
 var params = ['xx','aa'];
